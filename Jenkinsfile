@@ -13,7 +13,7 @@ pipeline {
     }
         stage('Push'){
             steps{
-                withCredentials([usernamepassword(credentialsID: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) { 
+                withCredentials([usernamePassword(credentialsID: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) { 
                      sh 'docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}'
                      sh 'docker push coledocker11/nodetodo:latest'
                 }   
